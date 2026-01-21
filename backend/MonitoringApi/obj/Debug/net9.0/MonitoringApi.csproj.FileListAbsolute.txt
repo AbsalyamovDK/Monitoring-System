@@ -26,9 +26,6 @@ C:\Users\Damir Absalyamov\Desktop\monitoring-system\Monitoring-System\backend\Mo
 C:\Users\Damir Absalyamov\Desktop\monitoring-system\Monitoring-System\backend\MonitoringApi\bin\Debug\net9.0\MonitoringApi.pdb
 C:\Users\Damir Absalyamov\Desktop\monitoring-system\Monitoring-System\backend\MonitoringApi\bin\Debug\net9.0\Microsoft.AspNetCore.OpenApi.dll
 C:\Users\Damir Absalyamov\Desktop\monitoring-system\Monitoring-System\backend\MonitoringApi\bin\Debug\net9.0\Microsoft.OpenApi.dll
-C:\Users\Damir Absalyamov\Desktop\monitoring-system\Monitoring-System\backend\MonitoringApi\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
-C:\Users\Damir Absalyamov\Desktop\monitoring-system\Monitoring-System\backend\MonitoringApi\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\Users\Damir Absalyamov\Desktop\monitoring-system\Monitoring-System\backend\MonitoringApi\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\Damir Absalyamov\Desktop\monitoring-system\Monitoring-System\backend\MonitoringApi\obj\Debug\net9.0\rjimswa.dswa.cache.json
 C:\Users\Damir Absalyamov\Desktop\monitoring-system\Monitoring-System\backend\MonitoringApi\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
 C:\Users\Damir Absalyamov\Desktop\monitoring-system\Monitoring-System\backend\MonitoringApi\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json

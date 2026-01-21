@@ -1,17 +1,17 @@
 using System.Collections.Concurrent;
 using MonitoringApi.Models;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace MonitoringApi.Services
 {
     public class MonitoringService : IMonitoringService
     {
-        // In-memory хранилище: ключ - DeviceId, значение - список сессий
         private readonly ConcurrentDictionary<string, List<DeviceSession>> _sessions = new();
 
         public Task AddSessionAsync(DeviceSession session)
         {
-            // ≈сли устройство уже есть, добавл€ем сессию в список
-            // ≈сли нет - создаем новый список с одной сессией
             _sessions.AddOrUpdate(
                 session.DeviceId,
                 new List<DeviceSession> { session },
@@ -26,7 +26,6 @@ namespace MonitoringApi.Services
 
         public Task<IEnumerable<DeviceSession>> GetAllSessionsAsync()
         {
-            // ¬озвращаем все сессии всех устройств
             var allSessions = _sessions.Values.SelectMany(x => x);
             return Task.FromResult(allSessions);
         }

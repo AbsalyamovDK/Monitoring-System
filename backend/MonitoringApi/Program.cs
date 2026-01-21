@@ -2,45 +2,37 @@ using MonitoringApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Добавляем сервисы в контейнер
+// Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 
-// Настраиваем CORS для Angular приложения
+// Configure CORS for Angular app
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAngularApp",
         policy =>
         {
-            policy.WithOrigins("http://localhost:4200")  // Адрес Angular приложения
+            policy.WithOrigins("http://localhost:4200")
                   .AllowAnyHeader()
                   .AllowAnyMethod();
         });
 });
 
-// Регистрируем наши сервисы
+// Register our services
 builder.Services.AddSingleton<IMonitoringService, MonitoringService>();
 
 var app = builder.Build();
 
-// Настраиваем конвейер HTTP-запросов
+// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseDeveloperExceptionPage();
 }
 
 app.UseHttpsRedirection();
-
-// ВАЖНО: UseCors должен быть после UseRouting
 app.UseRouting();
-
-// Подключаем CORS
 app.UseCors("AllowAngularApp");
-
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();

@@ -9,9 +9,9 @@ namespace MonitoringApi.Models
         public string Id { get; set; } = Guid.NewGuid().ToString();
 
         [Required]
-        public string DeviceId { get; set; }
+        public string DeviceId { get; set; } = string.Empty;
 
-        public string UserName { get; set; }
+        public string? UserName { get; set; }
 
         [Required]
         public DateTime StartTime { get; set; }
@@ -20,6 +20,6 @@ namespace MonitoringApi.Models
         public DateTime EndTime { get; set; }
 
         [Required]
-        public string Version { get; set; }
+        public string Version { get; set; } = string.Empty;
     }
 }
