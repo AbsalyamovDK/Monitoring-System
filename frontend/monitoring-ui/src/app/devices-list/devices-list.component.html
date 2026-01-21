@@ -1,0 +1,60 @@
+<div class="container mt-4">
+  <h2>Device Monitoring System</h2>
+  <h4 class="mb-4">Devices List</h4>
+  
+  <!-- Загрузка -->
+  <div *ngIf="loading" class="text-center">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <p class="mt-2">Loading devices...</p>
+  </div>
+
+  <!-- Ошибка -->
+  <div *ngIf="error" class="alert alert-warning">
+    <i class="bi bi-exclamation-triangle"></i> {{ error }}
+  </div>
+
+  <!-- Нет данных -->
+  <div *ngIf="!loading && devices.length === 0" class="alert alert-info">
+    <i class="bi bi-info-circle"></i> No devices found. Add some using the API.
+  </div>
+
+  <!-- Таблица устройств -->
+  <div *ngIf="!loading && devices.length > 0" class="table-responsive">
+    <table class="table table-hover table-striped">
+      <thead class="table-dark">
+        <tr>
+          <th>Device ID</th>
+          <th>User</th>
+          <th>Version</th>
+          <th>Sessions</th>
+          <th>Last Activity</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let device of devices">
+          <td><strong>{{ device.deviceId || device.deviceid }}</strong></td>
+          <td>{{ device.userName || device.username }}</td>
+          <td><span class="badge bg-primary">{{ device.latestVersion || device.latestversion }}</span></td>
+          <td><span class="badge bg-secondary">{{ device.totalSessions || device.totalsessions }}</span></td>
+          <td>{{ formatDate(device.lastActivity || device.lastactivity) }}</td>
+          <td>
+            <button class="btn btn-sm btn-primary" (click)="viewDeviceSessions(device.deviceId || device.deviceid)">
+              <i class="bi bi-eye"></i> View Sessions
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Кнопка для тестирования -->
+  <div class="mt-4">
+    <button class="btn btn-success" (click)="loadDevices()">
+      <i class="bi bi-arrow-clockwise"></i> Refresh
+    </button>
+    <small class="text-muted ms-2">Total: {{ devices.length }} device(s)</small>
+  </div>
+</div>

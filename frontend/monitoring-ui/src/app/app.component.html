@@ -1,0 +1,24 @@
+<!-- Простая навигация -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/devices">
+      <i class="bi bi-device-ssd"></i> Device Monitoring System
+    </a>
+    <div class="navbar-nav">
+      <a class="nav-link" routerLink="/devices" routerLinkActive="active">Devices</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Основной контент -->
+<div class="container mt-4">
+  <router-outlet></router-outlet>
+</div>
+
+<!-- Футер -->
+<footer class="mt-5 py-3 bg-light text-center">
+  <div class="container">
+    <p class="mb-0">Device Monitoring System &copy; 2024</p>
+    <p class="text-muted small">Backend: ASP.NET Core Web API | Frontend: Angular 15</p>
+  </div>
+</footer>
