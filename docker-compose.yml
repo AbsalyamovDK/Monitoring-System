@@ -1,0 +1,27 @@
+services:
+  # Backend - .NET 8 Web API
+  backend:
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "5000:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
+    # Для разработки можно смонтировать том с кодом
+    # volumes:
+    #   - ./backend/MonitoringApi:/app
+
+  # Frontend - Angular 15 SPA
+  frontend:
+    build: 
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "4200:80"
+    depends_on:
+      - backend
+    # Настройка прокси для nginx (если нужно)
+    # environment:
+    #   - API_URL=http://backend:80
